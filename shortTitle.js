@@ -8,19 +8,19 @@ async function findAll() {
         const movies = await Movie.find({});
         
         for(const movie of movies) {
-            const title = movie.displayTitle;
+            const title = movie.title;
             let shortTitle = "";
             
             for(let ctr = 0 ; ctr < title.length ; ctr++) {
-                if(title[ctr] === '(') break;
+                if(title[ctr] === '(' || title[ctr] === ':') break;
                 shortTitle += title[ctr];
             }
 
-            movie.displayTitle = shortTitle;
-            
-            console.log("Short Title Added for " + movie.displayTitle)
+            movie.shortTitle = shortTitle;
 
             await movie.save();
+            
+            console.log("Short Title Added for " + movie.shortTitle)
         }
 
         console.log("All movies are done, stopping the code execution");
