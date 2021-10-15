@@ -17,6 +17,8 @@ async function findAll() {
             }
 
             movie.displayTitle = shortTitle;
+            
+            console.log("Short Title Added for" + movie.displayTitle)
 
             await movie.save();
         }
