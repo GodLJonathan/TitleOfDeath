@@ -9,7 +9,7 @@ async function findAll() {
         
         for(const movie of movies) {
             const title = movie.title;
-            const shortTitle = "";
+            let shortTitle = "";
             
             for(let ctr = 0 ; ctr < title.length ; ctr++) {
                 if(title[ctr] === ':') break;
